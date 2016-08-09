@@ -26,14 +26,12 @@
 #
 #===============================================================================
 
-###URLリスト例
-$array = @()#空配列の宣言
-
 ###URLリストファイル読み込み
 $txt = "urllist.txt"# URLが改行区切りで記述されたテキストファイル
 $linecount=0
 $enc = [Text.Encoding]::GetEncoding("Shift_JIS")
 $fh = New-Object System.IO.StreamReader($txt, $enc)
+$array = @()#空配列の宣言
 while (($linedata = $fh.ReadLine()) -ne $null) {
     Write-Host $linecount : $linedata
     $array+=$linedata #URL情報をarray変数に格納する
